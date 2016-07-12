@@ -1,0 +1,11 @@
+model1:
+  name: Model1
+  make_id: 1
+
+model2:
+  name: Model2
+  make_id: 1
+
+model3:
+  name: Model3
+  make_id: 2
