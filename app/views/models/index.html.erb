@@ -1,9 +1,6 @@
-<% maker = Maker.where(webmotors_id: params[:webmotors_maker_id])[0] %>
-<% models = Model.where(maker_id: maker.id) %>
-
 <a href="/"><< Voltar</a>
 <ul>
-  <% models.each do |model| %>
+  <% @models.each do |model| %>
     <li><%= model.name %></li>
   <% end %>
 </ul>

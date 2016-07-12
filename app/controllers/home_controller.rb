@@ -13,5 +13,7 @@ class HomeController < ApplicationController
         Maker.create(name: make_params["Nome"], webmotors_id: make_params["Id"])
       end
     end
+
+    @makers = Maker.all
   end
 end

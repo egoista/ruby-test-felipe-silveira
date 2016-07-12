@@ -17,5 +17,7 @@ class ModelsController < ApplicationController
         Model.create(maker_id: maker.id, name: json["Nome"])
       end
     end
+
+    @models = Model.where(maker_id: maker.id)
   end
 end
