@@ -1,9 +1,9 @@
 make1:
   id: 1
-  name: Make1
+  name: Maker1
   webmotors_id: 1
 
 make2:
   id: 2
-  name: Make2
+  name: Maker2
   webmotors_id: 2

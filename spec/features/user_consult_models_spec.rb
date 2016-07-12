@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'User look for models' do
   fixtures :models
-  fixtures :makes
+  fixtures :makers
 
   before(:all) do
     stub_request(:post, 'http://www.webmotors.com.br/carro/marcas').
@@ -15,7 +15,7 @@ feature 'User look for models' do
   scenario 'they select a maker and see the models' do
     visit '/'
 
-    select 'Make1', from: 'webmotors_make_id'
+    select 'Maker1', from: 'webmotors_maker_id'
     click_button 'Buscar modelos'
 
     expect(page).to have_text('Model1')
@@ -28,21 +28,21 @@ feature 'User look for models' do
     [
       {
         Id:1,
-        Nome:'Make1',
+        Nome:'Maker1',
         Count:0,
         IsPrincipal:false,
         Selected:false,
         NomeAmigavel:''
       },{
         Id:2,
-        Nome:'Make2',
+        Nome:'Maker2',
         Count:0,
         IsPrincipal:false,
         Selected:false,
         NomeAmigavel:''
       },{
         Id:3,
-        Nome:'Make3',
+        Nome:'Maker3',
         Count:0,
         IsPrincipal:false,
         Selected:false,

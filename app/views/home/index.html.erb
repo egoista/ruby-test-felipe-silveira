@@ -1,11 +1,11 @@
-<% makes = Make.all %>
+<% makers = Maker.all %>
 
 <form action="/models" method="GET">
   <p>
     <label>Escolha a Fabricante:</label>
-    <select name="webmotors_make_id">
-      <% makes.each do |make| %>
-        <option value="<%= make.webmotors_id %>"><%= make.name %></option>
+    <select name="webmotors_maker_id">
+      <% makers.each do |maker| %>
+        <option value="<%= maker.webmotors_id %>"><%= maker.name %></option>
       <% end %>
     </select>
   </p>
