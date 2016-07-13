@@ -13,7 +13,7 @@ feature 'User look for models' do
   end
 
   scenario 'they select a maker and see the models' do
-    visit '/'
+    visit home_path
 
     select 'Maker1', from: 'webmotors_maker_id'
     click_button 'Buscar modelos'
