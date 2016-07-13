@@ -19,6 +19,6 @@ class ModelsController < ApplicationController
       end
     end
 
-    @models = Model.where(maker_id: maker.id)
+    @models = maker.models
   end
 end

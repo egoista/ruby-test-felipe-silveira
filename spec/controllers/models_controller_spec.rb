@@ -36,7 +36,7 @@ RSpec.describe ModelsController do
 
       it 'loads the previous models into @models' do
         maker = Maker.where(webmotors_id: webmotors_id)[0]
-        models = Model.where(maker_id: maker.id).to_a
+        models = maker.models.to_a
 
         get :index, webmotors_maker_id: webmotors_id
 
@@ -67,7 +67,7 @@ RSpec.describe ModelsController do
 
       it 'loads the new models into @models' do
         maker = Maker.where(webmotors_id: webmotors_id)[0]
-        models = Model.where(maker_id: maker.id).to_a
+        models = maker.models.to_a
 
         get :index, webmotors_maker_id: webmotors_id
 
