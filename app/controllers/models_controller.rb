@@ -1,5 +1,6 @@
 class ModelsController < ApplicationController
   def index
+    params.require :webmotors_maker_id
     #search the models
     uri = URI("http://www.webmotors.com.br/carro/modelos")
 

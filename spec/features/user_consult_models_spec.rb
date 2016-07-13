@@ -4,7 +4,7 @@ feature 'User look for models' do
   fixtures :models
   fixtures :makers
 
-  before(:all) do
+  before(:each) do
     stub_request(:post, 'http://www.webmotors.com.br/carro/marcas').
       to_return(:status => 200, :body => makers_response_body)
     stub_request(:post, 'http://www.webmotors.com.br/carro/modelos').
