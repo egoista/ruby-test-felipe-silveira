@@ -8,7 +8,7 @@ RSpec.describe HomeController do
     context 'when no new maker from the webservice' do
 
       before(:each) do
-        stub_request(:post, 'http://www.webmotors.com.br/carro/marcas').
+        stub_request(:post, Webmotors::Gateway::MAKERS_URL).
           to_return(:status => 200, :body => no_new_makers_response_body)
       end
 
@@ -37,7 +37,7 @@ RSpec.describe HomeController do
     context 'when have new makers from the webservice' do
 
       before(:each) do
-        stub_request(:post, 'http://www.webmotors.com.br/carro/marcas').
+        stub_request(:post, Webmotors::Gateway::MAKERS_URL).
           to_return(:status => 200, :body => new_makers_response_body)
       end
 

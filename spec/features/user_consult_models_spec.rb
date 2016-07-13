@@ -5,9 +5,9 @@ feature 'User look for models' do
   fixtures :makers
 
   before(:each) do
-    stub_request(:post, 'http://www.webmotors.com.br/carro/marcas').
+    stub_request(:post, Webmotors::Gateway::MAKERS_URL).
       to_return(:status => 200, :body => makers_response_body)
-    stub_request(:post, 'http://www.webmotors.com.br/carro/modelos').
+    stub_request(:post, Webmotors::Gateway::MODELS_URL).
       with(:body => {marca:'1'}).
       to_return(:status => 200, :body => models_response_body)
   end

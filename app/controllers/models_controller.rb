@@ -1,22 +1,14 @@
 class ModelsController < ApplicationController
   def index
     params.require :webmotors_maker_id
-    #search the models
-    uri = URI("http://www.webmotors.com.br/carro/modelos")
 
-    # Make request for Webmotors site
-    maker = Maker.where(webmotors_id: params[:webmotors_maker_id])[0]
+    maker = Maker.find_by webmotors_id: params[:webmotors_maker_id]
 
-    response = Net::HTTP.post_form(uri, { marca: params[:webmotors_maker_id] })
-    models_json = JSON.parse response.body
-
-    # debugger
+    webmotors_models = Webmotors::Gateway.new.models(maker)
 
     # Itera no resultado e grava os modelos que ainda não estão persistidas
-    models_json.each do |json|
-      if Model.where(name: json["Nome"], maker_id: maker.id).size == 0
-        Model.create(maker_id: maker.id, name: json["Nome"])
-      end
+    webmotors_models.each do |webmotors_model|
+      webmotors_model.save unless Model.exists?(name: webmotors_model.name, maker_id: webmotors_model.maker_id)
     end
 
     @models = maker.models

@@ -16,7 +16,7 @@ RSpec.describe ModelsController do
     context 'when no new model from the webservice' do
 
       before(:each) do
-        stub_request(:post, 'http://www.webmotors.com.br/carro/modelos').
+        stub_request(:post, Webmotors::Gateway::MODELS_URL).
           with(:body => {marca: webmotors_id.to_s}).
           to_return(:status => 200, :body => no_new_models_response_body)
       end
@@ -47,7 +47,7 @@ RSpec.describe ModelsController do
     context 'when have new models from the webservice' do
 
       before(:each) do
-        stub_request(:post, 'http://www.webmotors.com.br/carro/modelos').
+        stub_request(:post, Webmotors::Gateway::MODELS_URL).
           with(:body => {marca: webmotors_id.to_s}).
           to_return(:status => 200, :body => new_models_response_body)
       end
